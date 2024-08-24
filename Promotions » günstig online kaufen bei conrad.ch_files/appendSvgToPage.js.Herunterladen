@@ -1,0 +1,12 @@
+if (!document.getElementById('svgSprite')) {
+  const xhr = new XMLHttpRequest();
+  xhr.open('GET', 'https://design.conrad.com/ce-sprite.svg', true);
+  xhr.send();
+  xhr.onload = function () {
+    const div = document.createElement('div');
+    div.id = 'svgSprite';
+    div.style.display = 'none';
+    div.innerHTML = xhr.responseText;
+    document.body.insertBefore(div, document.body.childNodes[0]);
+  };
+}
